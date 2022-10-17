@@ -41,21 +41,30 @@ while Username2Access == False:
 	else:
 		print("Wrong username,try again!")
 
-def roll():
+def roll(User):
 	score=0
 	dice1 = random.randint(1,6)
 	dice2 = random.randint(1,6)
 	dicetotalscore = dice1+dice2
 	score = score+dicetotalscore
 
+    scoredOrLost = " scored "
+
+	additional = ""
+	
 	if dicetotalscore %2 == 0:
 		score = score+10
 	else:
 		score = score-5
         if (score < 0) score = 0
+        scoredOrlost = " lost "
 	if dice1 == dice2:
 		dice3 = random.randint(1,6)
 		score = score+dice3
+	
+	print(User + scoredOrLost + str(dice1) + " + " str(dice2) + " points with a score of now: " + str(score))
+    print ("\n==========\n")    
+
 	return(score)
 
 for i in range(1,6):
@@ -64,11 +73,8 @@ for i in range(1,6):
 	if decision == "y":
 		print (f"ROUND {i}")
 		print ("\n==========\n")
-		User1Score += roll()
-		print("P1: After this round",User1,"you now have:",User1Score,"Score.")
-		User2Score += roll()
-		print("P2: After this round",User2,"you now have:",User2Score,"Score.")
-		print ("\n==========\n")
+		User1Score += roll(User1)		
+		User2Score += roll(User2)
 	else: 
 		print ("Program Terminated")
 		quit()
