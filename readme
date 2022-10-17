@@ -21,7 +21,7 @@ while Username1Access == False:
 			Username1Access = True
 			User1 = Username1
 		else:
-			print("Wrong passowrd,try again!")
+			print("Wrong password,try again!")
 	else:
 		print("Wrong username,try again!")
 
@@ -52,6 +52,7 @@ def roll():
 		score = score+10
 	else:
 		score = score-5
+        if (score < 0) score = 0
 	if dice1 == dice2:
 		dice3 = random.randint(1,6)
 		score = score+dice3
